@@ -30,4 +30,6 @@ public interface AmigosFacadeLocal {
 
     int count();
     
+    public List<Amigos> findbyIdUsuario(Short id);
+    
 }

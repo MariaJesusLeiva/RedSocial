@@ -6,9 +6,12 @@
 package app.beans;
 
 import app.entity.Amigos;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,5 +30,29 @@ public class AmigosFacade extends AbstractFacade<Amigos> implements AmigosFacade
     public AmigosFacade() {
         super(Amigos.class);
     }
+    
+    
+    public List<Amigos> findbyIdUsuario(Short id) {
+        
+        
+         List<Amigos> amig;
+        Query buscarAmigos;
+        
+        try
+        {
+        
+        buscarAmigos= em.createQuery("SELECT t from Amigos t WHERE t.id1Usuario =:id")
+                 .setParameter("id", id);
+        
+       
+            amig = (List<Amigos>) buscarAmigos.getResultList();
+        }
+        catch(NoResultException e)
+        {
+            return null;
+        }
+        return amig;
+    }
+    
     
 }
