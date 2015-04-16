@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -16,6 +13,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -29,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Entity
 @Table(name = "USUARIO")
@@ -48,12 +46,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuario.findByPais", query = "SELECT u FROM Usuario u WHERE u.pais = :pais")})
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_USUARIO")
-    private BigDecimal idUsuario;
+    private Short idUsuario;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 50)
     @Column(name = "EMAIL")
@@ -73,15 +70,18 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_ROL")
-    private BigInteger idRol;
+    private short idRol;
     @Column(name = "SEXO")
-    private BigInteger sexo;
+    private Short sexo;
     @Size(max = 45)
     @Column(name = "CIUDAD")
     private String ciudad;
     @Size(max = 45)
     @Column(name = "PAIS")
     private String pais;
+    @Lob
+    @Column(name = "COLUMNAIMAGEN")
+    private Serializable columnaimagen;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id2Usuario")
     private Collection<Amigos> amigosCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id1Usuario")
@@ -98,20 +98,20 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(BigDecimal idUsuario) {
+    public Usuario(Short idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Usuario(BigDecimal idUsuario, BigInteger idRol) {
+    public Usuario(Short idUsuario, short idRol) {
         this.idUsuario = idUsuario;
         this.idRol = idRol;
     }
 
-    public BigDecimal getIdUsuario() {
+    public Short getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(BigDecimal idUsuario) {
+    public void setIdUsuario(Short idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -155,19 +155,19 @@ public class Usuario implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public BigInteger getIdRol() {
+    public short getIdRol() {
         return idRol;
     }
 
-    public void setIdRol(BigInteger idRol) {
+    public void setIdRol(short idRol) {
         this.idRol = idRol;
     }
 
-    public BigInteger getSexo() {
+    public Short getSexo() {
         return sexo;
     }
 
-    public void setSexo(BigInteger sexo) {
+    public void setSexo(Short sexo) {
         this.sexo = sexo;
     }
 
@@ -185,6 +185,14 @@ public class Usuario implements Serializable {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public Serializable getColumnaimagen() {
+        return columnaimagen;
+    }
+
+    public void setColumnaimagen(Serializable columnaimagen) {
+        this.columnaimagen = columnaimagen;
     }
 
     @XmlTransient

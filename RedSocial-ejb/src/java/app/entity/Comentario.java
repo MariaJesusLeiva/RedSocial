@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -26,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Entity
 @Table(name = "COMENTARIO")
@@ -38,12 +36,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Comentario.findByTexto", query = "SELECT c FROM Comentario c WHERE c.texto = :texto")})
 public class Comentario implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_COMENTARIO")
-    private BigDecimal idComentario;
+    private Short idComentario;
     @Column(name = "FECHA_PUBLICACION")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
@@ -57,15 +54,15 @@ public class Comentario implements Serializable {
     public Comentario() {
     }
 
-    public Comentario(BigDecimal idComentario) {
+    public Comentario(Short idComentario) {
         this.idComentario = idComentario;
     }
 
-    public BigDecimal getIdComentario() {
+    public Short getIdComentario() {
         return idComentario;
     }
 
-    public void setIdComentario(BigDecimal idComentario) {
+    public void setIdComentario(Short idComentario) {
         this.idComentario = idComentario;
     }
 

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.beans;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 public abstract class AbstractFacade<T> {
     private Class<T> entityClass;

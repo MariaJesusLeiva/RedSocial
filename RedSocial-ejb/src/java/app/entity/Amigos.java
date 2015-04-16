@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -25,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Entity
 @Table(name = "AMIGOS")
@@ -36,12 +34,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Amigos.findByFecha", query = "SELECT a FROM Amigos a WHERE a.fecha = :fecha")})
 public class Amigos implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_AMIGO")
-    private BigDecimal idAmigo;
+    private Short idAmigo;
     @Column(name = "FECHA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
@@ -55,15 +52,15 @@ public class Amigos implements Serializable {
     public Amigos() {
     }
 
-    public Amigos(BigDecimal idAmigo) {
+    public Amigos(Short idAmigo) {
         this.idAmigo = idAmigo;
     }
 
-    public BigDecimal getIdAmigo() {
+    public Short getIdAmigo() {
         return idAmigo;
     }
 
-    public void setIdAmigo(BigDecimal idAmigo) {
+    public void setIdAmigo(Short idAmigo) {
         this.idAmigo = idAmigo;
     }
 

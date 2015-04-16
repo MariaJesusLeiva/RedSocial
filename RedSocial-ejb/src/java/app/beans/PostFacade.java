@@ -3,17 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.beans;
 
 import app.entity.Post;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Stateless
 public class PostFacade extends AbstractFacade<Post> implements PostFacadeLocal {
@@ -29,4 +31,26 @@ public class PostFacade extends AbstractFacade<Post> implements PostFacadeLocal 
         super(Post.class);
     }
     
+    public List<Post> findbyIdUsuario(Short id) {
+        
+        
+         List<Post> pst;
+        Query buscarPost;
+        
+        try
+        {
+            
+        buscarPost= em.createQuery("SELECT u FROM Post u WHERE u.idUsuario = :idand ") //t.idGrupo is NULL")
+                 .setParameter("id", id);
+        
+      
+            pst = (List<Post>) buscarPost.getResultList();
+        }
+        catch(NoResultException e)
+        {
+            return null;
+        }
+        return pst;
+    }
+
 }

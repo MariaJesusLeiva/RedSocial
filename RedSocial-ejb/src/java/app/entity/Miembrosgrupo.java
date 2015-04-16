@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Entity
 @Table(name = "MIEMBROSGRUPO")
@@ -32,12 +30,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Miembrosgrupo.findByIdMiembrogrupo", query = "SELECT m FROM Miembrosgrupo m WHERE m.idMiembrogrupo = :idMiembrogrupo")})
 public class Miembrosgrupo implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_MIEMBROGRUPO")
-    private BigDecimal idMiembrogrupo;
+    private Short idMiembrogrupo;
     @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
     @ManyToOne
     private Usuario idUsuario;
@@ -48,15 +45,15 @@ public class Miembrosgrupo implements Serializable {
     public Miembrosgrupo() {
     }
 
-    public Miembrosgrupo(BigDecimal idMiembrogrupo) {
+    public Miembrosgrupo(Short idMiembrogrupo) {
         this.idMiembrogrupo = idMiembrogrupo;
     }
 
-    public BigDecimal getIdMiembrogrupo() {
+    public Short getIdMiembrogrupo() {
         return idMiembrogrupo;
     }
 
-    public void setIdMiembrogrupo(BigDecimal idMiembrogrupo) {
+    public void setIdMiembrogrupo(Short idMiembrogrupo) {
         this.idMiembrogrupo = idMiembrogrupo;
     }
 

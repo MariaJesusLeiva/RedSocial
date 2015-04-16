@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -30,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Entity
 @Table(name = "GRUPO")
@@ -42,12 +40,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Grupo.findByFechaCreacion", query = "SELECT g FROM Grupo g WHERE g.fechaCreacion = :fechaCreacion")})
 public class Grupo implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_GRUPO")
-    private BigDecimal idGrupo;
+    private Short idGrupo;
     @Size(max = 50)
     @Column(name = "NOMBRE")
     private String nombre;
@@ -65,15 +62,15 @@ public class Grupo implements Serializable {
     public Grupo() {
     }
 
-    public Grupo(BigDecimal idGrupo) {
+    public Grupo(Short idGrupo) {
         this.idGrupo = idGrupo;
     }
 
-    public BigDecimal getIdGrupo() {
+    public Short getIdGrupo() {
         return idGrupo;
     }
 
-    public void setIdGrupo(BigDecimal idGrupo) {
+    public void setIdGrupo(Short idGrupo) {
         this.idGrupo = idGrupo;
     }
 

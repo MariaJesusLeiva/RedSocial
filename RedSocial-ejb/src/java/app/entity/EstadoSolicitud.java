@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -25,7 +23,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Entity
 @Table(name = "ESTADO_SOLICITUD")
@@ -36,12 +34,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EstadoSolicitud.findByTipoEstado", query = "SELECT e FROM EstadoSolicitud e WHERE e.tipoEstado = :tipoEstado")})
 public class EstadoSolicitud implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_ESTADOSOLICITUD")
-    private BigDecimal idEstadosolicitud;
+    private Short idEstadosolicitud;
     @Size(max = 50)
     @Column(name = "TIPO_ESTADO")
     private String tipoEstado;
@@ -51,15 +48,15 @@ public class EstadoSolicitud implements Serializable {
     public EstadoSolicitud() {
     }
 
-    public EstadoSolicitud(BigDecimal idEstadosolicitud) {
+    public EstadoSolicitud(Short idEstadosolicitud) {
         this.idEstadosolicitud = idEstadosolicitud;
     }
 
-    public BigDecimal getIdEstadosolicitud() {
+    public Short getIdEstadosolicitud() {
         return idEstadosolicitud;
     }
 
-    public void setIdEstadosolicitud(BigDecimal idEstadosolicitud) {
+    public void setIdEstadosolicitud(Short idEstadosolicitud) {
         this.idEstadosolicitud = idEstadosolicitud;
     }
 

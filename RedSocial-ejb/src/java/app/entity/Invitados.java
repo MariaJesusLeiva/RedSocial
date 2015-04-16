@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -25,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Entity
 @Table(name = "INVITADOS")
@@ -36,12 +34,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Invitados.findByFecha", query = "SELECT i FROM Invitados i WHERE i.fecha = :fecha")})
 public class Invitados implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_INVITADOS")
-    private BigDecimal idInvitados;
+    private Short idInvitados;
     @Column(name = "FECHA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
@@ -55,15 +52,15 @@ public class Invitados implements Serializable {
     public Invitados() {
     }
 
-    public Invitados(BigDecimal idInvitados) {
+    public Invitados(Short idInvitados) {
         this.idInvitados = idInvitados;
     }
 
-    public BigDecimal getIdInvitados() {
+    public Short getIdInvitados() {
         return idInvitados;
     }
 
-    public void setIdInvitados(BigDecimal idInvitados) {
+    public void setIdInvitados(Short idInvitados) {
         this.idInvitados = idInvitados;
     }
 

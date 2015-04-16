@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.beans;
 
 import app.entity.EstadoSolicitud;
@@ -12,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Local
 public interface EstadoSolicitudFacadeLocal {

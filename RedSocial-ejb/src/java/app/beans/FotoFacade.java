@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package app.beans;
 
 import app.entity.Foto;
@@ -13,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Inma
+ * @author JoseAntonio
  */
 @Stateless
 public class FotoFacade extends AbstractFacade<Foto> implements FotoFacadeLocal {

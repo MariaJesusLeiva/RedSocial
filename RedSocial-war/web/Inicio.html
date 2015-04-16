@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Red Social</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<html lang="en">
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
+    <title>Red Social</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+  ================================================== -->
+
+    <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+    <div class="container">
+        <div class="flat-form">
+            <ul class="tabs">
+                <li>
+                    <a href="#login" class="active">Login</a>
+                </li>
+                <li>
+                    <a href="#register">Registro</a>
+                </li>
+                <li>
+                    <a href="#reset">¿Olvidaste la contraseña?</a>
+                </li>
+            </ul>
+            <div id="login" class="form-action show">
+                <h1>Login</h1>
+                <p>
+                    Aquí falta unas frases para describir la red social 
+                </p>
+                 <form method="POST" action="http://localhost:8080/RedSocial-war/InicioServlet">
+                            
+                    <ul>
+                        <input type="hidden" name="valor" value="registrado">
+                        <li>
+                            <label>Email</label><input type="text" name="email" id="email" required autofocus 
+                                                          placeholder="Escribe tu email"/>                       </li>
+                        <li>
+                            <label>Contraseña</label><input type="password" name="clave" id="clave" required autofocus
+                                                            placeholder="Escribe tu contraseña"/>
+                        </li>
+                        
+                        <li> 
+                            <input name="recordar" type="checkbox" value="recordar"/> Recordar
+                        </li>
+                       
+                        <li>
+                            <input type="submit" value="Login" class="button" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--/#login.form-action-->
+            <div id="register" class="form-action hide">
+                <h1>Registro</h1>
+                <p>
+                    “Disfruta de la experiencia de nuestra Red Social"
+                </p>
+                <form method="POST" action="http://localhost:8080/RedSocial-war/InicioServlet">
+                        <input type="hidden" name="valor" value="nuevo">
+            
+            
+           </br>
+              
+                    <ul>
+                        <input type="hidden" name="valor" value="registrado">
+                        
+                        <li>  
+                            <label>Nombre:</label><input type="text" name="NombreNuevo" value="" required autofocus 
+                                                          placeholder="Escribe tu nombre"/>
+                        
+                            <label>Apellidos</label><input type="text" name="ApellidosNuevo" value="" required autofocus 
+                                                          placeholder="Escribe tus apellidos"/>
+                        </li>
+                        <li>
+                            <label>Email</label><input type="text" name="emailNuevo" id="email"required autofocus 
+                                                          placeholder="Escribe tu email"/>                     
+                        </li>
+                        <li>
+                            <label>Contraseña</label><input type="password" name="PasswordNuevo" id="clave"required autofocus 
+                                                          placeholder="Escribe tu contraseña"/>
+                        </li>
+                        <li>
+                        <li> 
+                        <input name="sexoNuevo" type="radio" value="1" />Mujer
+                       
+                        <input name="sexoNuevo" type="radio" value="2" />Hombre
+                        
+                        </li>
+                        <li>
+                            <label>Ciudad:</label><input type="text" name="CiudadNuevo" value="" required autofocus 
+                                                          placeholder="Escribe tu ciudad"/>
+                        </li>
+                        <li> <label>Pais:</label><input type="text" name="PaisNuevo:" value="" required autofocus 
+                                                          placeholder="Escribe tu pais"/>
+                        </li>
+                        <li>
+                            <input type="submit" value="Login" class="button" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--/#register.form-action-->
+            <div id="reset" class="form-action hide">
+                <h1>Reset Password</h1>
+                <p>
+                   Para restablecer su contraseña, introduzca su dirección de correo electrónico 
+                     y te enviaremos un enlace para restaurar tu contraseña.
+                </p>
+                <form>
+                    <ul>
+                        <li>
+                             <label>Email</label><input type="text" name="email" id="email"/>                      </li>
+                        <li>
+                            
+                        
+                        <li>
+                            <input type="submit" value="Send" class="button" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--/#register.form-action-->
+        </div>
+    </div>
+    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+</body>
+</html>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
