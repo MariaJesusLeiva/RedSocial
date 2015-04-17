@@ -53,9 +53,9 @@ public class BuscarAmigoServlet extends HttpServlet {
         
         List<Amigos> listaAmigos;
         
-        listaAmigos = (List<Amigos>) facadeAmigos.findById();
+      //  listaAmigos = (List<Amigos>) facadeAmigos.findById();
         
-        request.setAttribute("", listaAmigos);
+     //   request.setAttribute("", listaAmigos);
         
         RequestDispatcher rd;
         rd = getServletContext().getNamedDispatcher("SeleccionarAmigos.jsp");
